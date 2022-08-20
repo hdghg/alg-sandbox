@@ -7,3 +7,4 @@ set(CMAKE_C_STANDARD 99)
 
 add_subdirectory(bubble bubble)
 add_subdirectory(insertionsort insertionsort)
+add_subdirectory(mergesort mergesort)

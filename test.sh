@@ -7,3 +7,4 @@ cmake --build .
 
 ../bubble/test.sh
 ../insertionsort/test.sh
+../mergesort/test.sh
