@@ -1,7 +1,41 @@
 #include <stdio.h>
+#include <limits.h>
 
-void mergeSort(int arr[], int size) {
+/**
+ *
+ * @param arr Array to sort
+ * @param p index of left side subarray
+ * @param q index of right subarray
+ * @param r index of end of right subarray plus 1
+ */
+void merge(int arr[], int p, int q, int r) {
+    int left[500], right[500], i, j = 0, k = 0;
 
+    for (i = p; i < q; i++) {
+        left[i - p] = arr[i];
+    }
+    left[i - p] = INT_MAX;
+    for (i = q; i < r; i++) {
+        right[i - q] = arr[i];
+    }
+    right[i - q] = INT_MAX;
+    for (i = p; i < r; i++) {
+        if (left[j] < right[k]) {
+            arr[i] = left[j++];
+        } else {
+            arr[i] = right[k++];
+        }
+    }
+}
+
+void mergeSort(int arr[], int start, int end) {
+    int q;
+    if (start < end - 1) {
+        q = (start + end) / 2;
+        mergeSort(arr, start, q);
+        mergeSort(arr, q, end);
+        merge(arr, start, q, end);
+    }
 }
 
 int main() {
@@ -14,7 +48,7 @@ int main() {
     for (i = 0; i < size; i++) {
         scanf("%d", &arr[i]);
     }
-    mergeSort(arr, size);
+    mergeSort(arr, 0, size);
     for (i = 0; i < size; i++) {
         printf("%d\n", arr[i]);
     }
