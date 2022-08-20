@@ -3,8 +3,6 @@ project(alg-sandbox C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(main main.c)
+#add_executable(main bubble/main.c)
 
-# Not used yet
-enable_testing()
-add_subdirectory(cases)
+add_subdirectory(bubble bubble)
