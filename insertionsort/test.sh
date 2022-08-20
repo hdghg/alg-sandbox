@@ -1,10 +1,10 @@
 #!/bin/sh
-printf ":: Bubble Sort ::\n"
-for i in $(ls -1qd ../bubble/cases/*/)
+printf ":: Insertion Sort ::\n"
+for i in $(ls -1qd ../insertionsort/cases/*/)
 do
   printf "Running test $i\n"
 
-  ./bubble/bubble < $i/input.txt > sol.txt
+  ./insertionsort/insertionsort < $i/input.txt > sol.txt
   diff -Z sol.txt $i/output.txt > /dev/null
   if test $? -gt 0
   then

@@ -6,3 +6,4 @@ cmake ..
 cmake --build .
 
 ../bubble/test.sh
+../insertionsort/test.sh
