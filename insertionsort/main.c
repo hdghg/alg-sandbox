@@ -1,22 +1,16 @@
 #include <stdio.h>
 
 void insertionSort(int arr[], int size) {
-    int i, buf, j, k;
+    int i, buf, j;
 
     for (i = 1; i < size; i++) {
-        if (arr[i - 1] > arr[i]) {
-            buf = arr[i];
-            j = 0;
-            while (arr[j] < buf) {
-                j++;
-            }
-            k = i;
-            while (k > j) {
-                arr[k] = arr[k - 1];
-                k--;
-            }
-            arr[j] = buf;
+        j = i;
+        buf = arr[i];
+        while (j > 0 && arr[j - 1] > buf) {
+            arr[j] = arr[j - 1];
+            j--;
         }
+        arr[j] = buf;
     }
 }
 
