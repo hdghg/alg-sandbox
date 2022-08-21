@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <limits.h>
+#include <stdlib.h>
 
 /**
  *
@@ -9,7 +10,9 @@
  * @param r index of end of right subarray plus 1
  */
 void merge(int arr[], int p, int q, int r) {
-    int left[501], right[501], i, j = 0, k = 0;
+    int *left, *right, i, j = 0, k = 0;
+    left = malloc(sizeof(int) * (q - p + 1));
+    right = malloc(sizeof(int) * (r - q + 1));
 
     for (i = p; i < q; i++) {
         left[i - p] = arr[i];
@@ -26,6 +29,8 @@ void merge(int arr[], int p, int q, int r) {
             arr[i] = right[k++];
         }
     }
+    free(left);
+    free(right);
 }
 
 void mergeSort(int arr[], int start, int end) {
