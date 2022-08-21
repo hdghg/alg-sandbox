@@ -9,7 +9,7 @@
  * @param r index of end of right subarray plus 1
  */
 void merge(int arr[], int p, int q, int r) {
-    int left[500], right[500], i, j = 0, k = 0;
+    int left[501], right[501], i, j = 0, k = 0;
 
     for (i = p; i < q; i++) {
         left[i - p] = arr[i];
